@@ -1,0 +1,13 @@
+{
+  "name": "beautycad-automation-worker",
+  "version": "0.1.0",
+  "private": true,
+  "description": "Playwright worker for BeautyCad promotion submissions",
+  "main": "run-playwright.js",
+  "scripts": {
+    "start": "node run-playwright.js"
+  },
+  "dependencies": {
+    "playwright": "^1.39.0"
+  }
+}
