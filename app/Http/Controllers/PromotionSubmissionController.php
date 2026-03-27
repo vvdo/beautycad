@@ -4,8 +4,11 @@ namespace App\Http\Controllers;
 
 use App\Http\Requests\StorePromotionSubmissionRequest;
 use App\Jobs\ProcessPromotionSubmission;
+use App\Models\PromotionSubmission;
 use App\Services\PromotionAutomationService;
 use Illuminate\Http\RedirectResponse;
+use Illuminate\Http\Request;
+use Illuminate\View\View;
 
 class PromotionSubmissionController extends Controller
 {
@@ -59,5 +62,22 @@ class PromotionSubmissionController extends Controller
         return redirect()
             ->route('dashboard')
             ->with('status', 'Promocao enviada para processamento.');
+    }
+
+    public function show(Request $request, PromotionSubmission $promotionSubmission): View
+    {
+        if ($promotionSubmission->user_id !== $request->user()->id) {
+            abort(404);
+        }
+
+        $promotionSubmission->load([
+            'logs' => fn ($query) => $query
+                ->orderByDesc('created_at')
+                ->orderByDesc('id'),
+        ]);
+
+        return view('promotion-submissions.show', [
+            'submission' => $promotionSubmission,
+        ]);
     }
 }

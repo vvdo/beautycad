@@ -102,6 +102,7 @@
                                         <th class="px-4 py-2 text-left font-semibold text-gray-700">Status</th>
                                         <th class="px-4 py-2 text-left font-semibold text-gray-700">Detalhes</th>
                                         <th class="px-4 py-2 text-left font-semibold text-gray-700">Data</th>
+                                        <th class="px-4 py-2 text-left font-semibold text-gray-700">Acoes</th>
                                     </tr>
                                 </thead>
                                 <tbody class="divide-y divide-gray-200">
@@ -140,6 +141,11 @@
                                             <td class="px-4 py-3 align-top text-gray-600">
                                                 {{ $submission->created_at->format('d/m/Y H:i') }}
                                             </td>
+                                            <td class="px-4 py-3 align-top">
+                                                <a href="{{ route('promotion-submissions.show', $submission) }}" class="inline-flex text-sm font-medium text-pink-700 underline">
+                                                    Ver logs
+                                                </a>
+                                            </td>
                                         </tr>
                                     @endforeach
                                 </tbody>
@@ -149,4 +155,5 @@
                 </div>
             </div>
         </div>
+    </div>
 </x-app-layout>

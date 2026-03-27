@@ -17,6 +17,8 @@ Route::middleware('auth')->group(function () {
     Route::get('/dashboard', DashboardController::class)->name('dashboard');
     Route::post('/promotion-submissions', [PromotionSubmissionController::class, 'store'])
         ->name('promotion-submissions.store');
+    Route::get('/promotion-submissions/{promotionSubmission}', [PromotionSubmissionController::class, 'show'])
+        ->name('promotion-submissions.show');
 
     Route::get('/dados-pessoais', [PersonalDataController::class, 'edit'])
         ->name('personal-data.edit');

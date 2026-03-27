@@ -21,6 +21,7 @@ Sistema MVP para agilizar cadastro em promocoes de brindes com fluxo de usuarios
 - Validacao obrigatoria de dados pessoais antes de enviar promocao.
 - Tela inicial com campo de link + botao `Cadastrar promocao`.
 - Registro de submissao de promocao com historico e status.
+- Tela de detalhes por promocao com timeline de logs e metadata tecnico.
 - Job assinado em fila para processamento.
 - Automacao real com Playwright:
   - acessa o link informado e tenta rejeitar cookies
